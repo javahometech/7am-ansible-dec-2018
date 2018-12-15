@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Create users
+      user:
+        name: "{{item.name}}"
+        group: "{{item.group}}"
+      loop:
+        - {name: 'hari', group: 'ec2-user'}
+        - {name: 'Rakesh', group: 'wheel'}
