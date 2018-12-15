@@ -2,10 +2,14 @@
 - hosts: all
   become: yes
   tasks:
+    - name: Create group
+      group:
+        name: javahome
+        state: present
     - name: Create users
       user:
         name: "{{item.name}}"
         group: "{{item.group}}"
       loop:
-        - {name: 'hari', group: 'ec2-user'}
-        - {name: 'Rakesh', group: 'wheel'}
+        - {name: 'hari', group: 'javahome'}
+        - {name: 'Rakesh', group: 'javahome'}

@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks:
+    - debug:
+        msg: 'This is debug message, it should execute only on linux'
+      when: ansible_facts['os_family'] == "RedHat"
