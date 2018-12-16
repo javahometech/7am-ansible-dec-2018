@@ -1,0 +1,7 @@
+---
+- hosts: all
+  tasks:
+    - name: Jinja2 Demo
+      template:
+        src: hello.j2
+        dest: /tmp/hello.txt

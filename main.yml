@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks:
+    - name: This is a task define in main.yml
+      debug:
+       msg: This is a task defined in main.yml
+    - name: This is included from common-tasks.yml
+      include: common-task.yml
+
