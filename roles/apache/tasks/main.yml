@@ -1,0 +1,18 @@
+---
+# tasks file for apache
+
+- name: Install Apache
+  yum:
+    name: httpd
+    state: present  
+- name: Enable apache on reboot and start
+  service:
+    name: httpd
+    enabled: yes
+    state: started
+- name: Deploy the project on apache
+  copy:
+    src: index.html
+    dest: /var/www/html/index.html
+  notify:
+     - Restart apache
